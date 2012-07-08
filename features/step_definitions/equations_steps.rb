@@ -1,3 +1,5 @@
+require File.join(File.dirname(__FILE__), '../../lib/simulator')
+
 Given /^variables with values x=(\d+), and y=(\d+)$/ do |x_value, y_value|
   var_x = Variable.new :x
   var_y = Variable.new :y
@@ -5,7 +7,7 @@ Given /^variables with values x=(\d+), and y=(\d+)$/ do |x_value, y_value|
   context = VariableContext.new
 
   # add new variables to the context
-  context.push var_x, var_y
+  context.add_variables var_x, var_y
 
   # set the values of the variables in this context
   context.set x: x_value, y: y_value

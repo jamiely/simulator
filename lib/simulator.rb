@@ -6,6 +6,7 @@ require 'simulator/variable_context'
 require 'simulator/sandbox'
 require 'simulator/model'
 require 'simulator/run'
+require 'simulator/period'
 
 module Simulator
 end

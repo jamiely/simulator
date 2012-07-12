@@ -1,6 +1,10 @@
-require File.join(File.dirname(__FILE__), 'simulator/equation')
-require File.join(File.dirname(__FILE__), 'simulator/variable')
-require File.join(File.dirname(__FILE__), 'simulator/bound_variable')
-require File.join(File.dirname(__FILE__), 'simulator/variable_context')
-require File.join(File.dirname(__FILE__), 'simulator/sandbox')
+require "simulator/version"
+require 'simulator/equation'
+require 'simulator/variable'
+require 'simulator/bound_variable'
+require 'simulator/variable_context'
+require 'simulator/sandbox'
+
+module Simulator
+end
 

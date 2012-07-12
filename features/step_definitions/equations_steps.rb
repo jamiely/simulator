@@ -30,30 +30,23 @@ Then /^I get a value result (\d+)$/ do |equation_result|
   @pythagorean_eqtn.evaluate_in(@context).should eq equation_result.to_i
 end
 
-Given /^a scenario$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-When /^I add a new equation$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then /^it should be accessible in the list of equations$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-Given /^a set of variables and values$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-When /^I use them in a new equation$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then /^the result should appear as expected$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
 Then /^a bound variable "(.*?)" with value (\d+)$/ do |var_name, value|
   @context.get(var_name.to_sym).value.should eq value.to_i
 end
+
+Given /^a model$/ do
+  @model = Simulator::Model.new
+end
+
+When /^I add a new equation$/ do
+  @new_equation = Equation.new do
+    1 + 1
+  end
+  @model.add_equation @new_equation
+end
+
+Then /^it should be accessible in the list of equations$/ do
+  @model.equations.member?(@new_equation).should be true
+end
+
+

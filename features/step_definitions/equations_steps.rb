@@ -1,4 +1,5 @@
-require File.join(File.dirname(__FILE__), '../../lib/simulator')
+require 'simulator'
+include Simulator
 
 Given /^a variable context$/ do
   @context = VariableContext.new
@@ -35,7 +36,7 @@ Then /^a bound variable "(.*?)" with value (\d+)$/ do |var_name, value|
 end
 
 Given /^a model$/ do
-  @model = Simulator::Model.new
+  @model = Model.new
 end
 
 When /^I add a new equation$/ do

@@ -1,4 +1,5 @@
-require File.join(File.dirname(__FILE__), '../lib/simulator')
+require 'simulator'
+include Simulator
 
 describe "an evaluation sandbox" do
   before :each do

@@ -5,6 +5,7 @@ require 'simulator/bound_variable'
 require 'simulator/variable_context'
 require 'simulator/sandbox'
 require 'simulator/model'
+require 'simulator/run'
 
 module Simulator
 end

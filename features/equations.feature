@@ -16,7 +16,7 @@ Feature: equations
   Scenario: creating an equation based on the pythagorean equation
     Given variables with values x=3, and y=4
     When I create a new equation sqrt(x^2 + y^2)
-    Then I get a value result 5
-    And a bound variable "x" with value 3
+    Then a bound variable "x" with value 3
     And a bound variable "y" with value 4
+    And I get a value result 5
 

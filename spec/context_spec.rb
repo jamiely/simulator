@@ -24,5 +24,15 @@ describe "a variable context" do
     @context.get(:x).value.should eq 3
     @context.get(:y).value.should eq 4
   end
+
+  it "can be cloned while maintaining variable instances" do
+    @context.add_variables Variable.new(:x), Variable.new(:y)
+    @context.set x: 3, y: 4
+    copy = @context.clone
+    copy.set x: 10
+
+    @context.get(:x).value.should be 3
+    copy.get(:x).value.should be 10
+  end
 end
 

@@ -1,27 +1,33 @@
 require File.join(File.dirname(__FILE__), '../../lib/simulator')
 
-Given /^variables with values x=(\d+), and y=(\d+)$/ do |x_value, y_value|
-  var_x = Variable.new :x
-  var_y = Variable.new :y
-
+Given /^a variable context$/ do
   @context = VariableContext.new
+end
+
+Given /^bound variable "([^=]*)=(\d+)"$/ do |var_name, value|
+  @context.add var_name.to_sym => value.to_i
+end
+
+When /^I create a new equation "(.*?)"$/ do |arg1|
+  @pythagorean_eqtn = Equation.new do
+    Math.sqrt( x*x + z*z )
+  end
+end
+
+Given /^variables with values x=(\d+), and y=(\d+)$/ do |x_value, y_value|
+  @context = VariableContext.new
+  @context.add x: 3, z: 4
 
   # add new variables to the context
   @context.add_variables var_x, var_y
 
   # set the values of the variables in this context
-  @context.set x: x_value.to_i, y: y_value.to_i
-end
-
-When /^I create a new equation sqrt\(x\^(\d+) \+ y\^(\d+)\)$/ do |arg1, arg2|
-  @pythagorean_eqtn = Equation.new do
-    Math.sqrt( x*x + y*y )
-  end
+  @context.set x: x_value.to_i, z: y_value.to_i
 end
 
 Then /^I get a value result (\d+)$/ do |equation_result|
   # the context evaluates an equation in its own context
-  @pythagorean_eqtn.evaluate_in(@context).should be(equation_result)
+  @pythagorean_eqtn.evaluate_in(@context).should eq equation_result.to_i
 end
 
 Given /^a scenario$/ do

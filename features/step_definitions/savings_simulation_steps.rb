@@ -13,12 +13,11 @@ Given /^equation "(.*?)" bound to ([\w_]+)$/ do |eqtn_str, var_name|
   var = @model.get_variable var_name.to_sym
   eqtn = Equation.new var do
     eval eqtn_str
-    #savings + principle * (1+savings_rate)
   end
   @model.add_equation eqtn
 end
 
-Given /^the value ([\d\.]+) bound to ([\w_]+)$/ do |value, name|
+Given /^the value (-?[\d\.]+) bound to ([\w_]+)$/ do |value, name|
   @run.set name.to_sym => value.to_f
 end
 
@@ -32,9 +31,9 @@ When /^I step the run for (\d+) periods$/ do |period_count|
   end
 end
 
-Then /^the value ([\d\.]+) should be bound to ([\w_]+)$/ do |value, var_name|
-  value = @run.variable_value var_name.to_sym
-  value.should be value
+Then /^the value (-?[\d\.]+) should be bound to ([\w_]+)$/ do |expected, var_name|
+  actual = @run.variable_value var_name.to_sym
+  actual.should be_within(0.001).of expected.to_f
 end
 
 

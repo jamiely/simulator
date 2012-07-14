@@ -6,11 +6,13 @@ Given /^a variable context$/ do
 end
 
 Given /^a value (\d+) bound to (\w+)$/ do |value, name|
-  @context.add name.to_sym => value.to_i
+  @var = Variable.new name.to_sym
+  @context.add_variables @var
+  @context.set name.to_sym => value.to_i
 end
 
 When /^I create a new equation "(.*?)"$/ do |arg1|
-  @pythagorean_eqtn = Equation.new do
+  @pythagorean_eqtn = Equation.new @var do
     Math.sqrt( x*x + z*z )
   end
 end
@@ -37,7 +39,7 @@ Given /^a model$/ do
 end
 
 When /^I add a new equation$/ do
-  @new_equation = Equation.new do
+  @new_equation = Equation.new nil do
     1 + 1
   end
   @model.add_equation @new_equation

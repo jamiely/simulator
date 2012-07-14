@@ -14,5 +14,10 @@ module Simulator
     def add_variable(variable)
       @variables << variable
     end
+    def get_variable(name)
+      @variables.find do |v|
+        v.name == name
+      end
+    end
   end
 end

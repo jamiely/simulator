@@ -8,12 +8,12 @@ Feature: savings simulation
     And variable "principle"
     And variable "savings_rate"
     And variable "savings"
-    And equation "savings = savings + principle * (1+savings_rate)"
+    And equation "savings + principle * (1+savings_rate)" bound to savings
     And a new run of the model
     And the value 0 bound to savings
     And the value 100 bound to principle
     And the value 0.05 bound to savings_rate
     When I step the run for 10 periods
-    Then the result should be 162.89
+    Then the value 162.89 should be bound to savings
 
 

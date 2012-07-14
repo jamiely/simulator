@@ -1,7 +1,10 @@
 module Simulator
   class Equation
-    def initialize(&equation)
+    attr_reader :variable 
+
+    def initialize(var, &equation)
       @equation_block = equation
+      @variable = var
     end
 
     # evaluate the equation in the passed context

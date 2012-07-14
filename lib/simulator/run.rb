@@ -10,6 +10,27 @@ module Simulator
       current_context.add_variables *@model.variables
     end
 
+    def evaluate
+      # evaluate the equations in the current context
+      @model.equations.each do | eqtn |
+        result = eqtn.evaluate_in current_context
+        var = eqtn.variable
+        bound_var = current_context.get(var.name)
+        bound_var.value = result
+      end
+    end
+
+    def increment_period
+      p = Period.new self, @periods.dup
+      @periods << p
+      p
+    end
+
+    def step
+      evaluate
+      increment_period
+    end
+
     # The number of periods so far. All runs have at least 1 period.
     def period_count
       @periods.length

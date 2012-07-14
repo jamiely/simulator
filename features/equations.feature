@@ -10,8 +10,8 @@ Feature: equations
 
   Scenario: creating an equation based on the pythagorean equation
     Given a variable context
-    And bound variable "x=3"
-    And bound variable "z=4"
+    And a value 3 bound to x
+    And a value 4 bound to z
     When I create a new equation "Math.sqrt(x^2 + z^2)"
     Then I get a value result 5
 

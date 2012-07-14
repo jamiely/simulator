@@ -5,8 +5,8 @@ Given /^a variable context$/ do
   @context = VariableContext.new
 end
 
-Given /^bound variable "([^=]*)=(\d+)"$/ do |var_name, value|
-  @context.add var_name.to_sym => value.to_i
+Given /^a value (\d+) bound to (\w+)$/ do |value, name|
+  @context.add name.to_sym => value.to_i
 end
 
 When /^I create a new equation "(.*?)"$/ do |arg1|
@@ -18,9 +18,6 @@ end
 Given /^variables with values x=(\d+), and y=(\d+)$/ do |x_value, y_value|
   @context = VariableContext.new
   @context.add x: 3, z: 4
-
-  # add new variables to the context
-  @context.add_variables var_x, var_y
 
   # set the values of the variables in this context
   @context.set x: x_value.to_i, z: y_value.to_i

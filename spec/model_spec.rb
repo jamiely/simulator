@@ -23,7 +23,7 @@ describe "a model" do
 
   it "accepts new equations" do
     @model.equations.length.should be 0
-    e = Equation.new do
+    e = Equation.new nil do
       1
     end
     @model.add_equation e

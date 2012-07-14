@@ -4,14 +4,16 @@ Feature: savings simulation
   I want the simulation to output the outcome of the decisions made
 
   Scenario: constant savings rate
-    Given I enter 5% as the savings rate for each of 10 periods
-    And I start with a principle of $100 in my account
-    When I run the simulation
-    Then the result should be $100 * 1.05^10 = $162.89
+    Given a savings model
+    And variable "principle"
+    And variable "savings_rate"
+    And variable "savings"
+    And equation "savings = savings + principle * (1+savings_rate)"
+    And a new run of the model
+    And the value 0 bound to savings
+    And the value 100 bound to principle
+    And the value 0.05 bound to savings_rate
+    When I step the run for 10 periods
+    Then the result should be 162.89
 
-  Scenario: variable savings rate
-    Given I enter 5% as the first period savings rate, and add 1% each period for 5 periods
-    And I start with a principle of $100 
-    When I run the entire simulation
-    Then the result should be $100 * 1.05 * 1.06 * 1.07 * 1.08 * 1.09 = $140.19
 

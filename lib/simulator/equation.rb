@@ -9,7 +9,7 @@ module Simulator
 
     # evaluate the equation in the passed context
     def evaluate_in(context)
-      sandbox = Sandbox.new context
+      sandbox = context.new_sandbox
       sandbox.instance_eval &@equation_block
     end
   end

@@ -7,7 +7,7 @@ module Simulator
     def initialize(run, previous_periods = [])
       @run = run
       @previous_periods = previous_periods
-      @context = @previous_periods.empty? ? VariableContext.new : previous.context.clone
+      @context = @previous_periods.empty? ? PeriodVariableContext.new(self) : previous.context.clone
     end
 
     # the first period

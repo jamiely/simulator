@@ -4,6 +4,10 @@ module Simulator
       @variables_hash = {}
     end
 
+    def new_sandbox
+      Sandbox.new self
+    end
+
     def add(var_hash)
       vars = var_hash.collect do |k, v|
         Variable.new k

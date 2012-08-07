@@ -1,5 +1,7 @@
 module Simulator
   class Sandbox
+    attr_reader :context
+
     def initialize(context)
       @context = context
     end

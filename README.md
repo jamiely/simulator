@@ -19,9 +19,11 @@ Or install it yourself as:
 ## Usage
 
 See the features for some examples.
+
     bundle exec cucumber
 
 See the specs for some simpler examples.
+
     bundle exec rspec
 
 

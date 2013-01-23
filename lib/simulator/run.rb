@@ -63,6 +63,27 @@ module Simulator
 
       "#{model_summary}\n#{period_summary}\nVariables:\n#{var_list}"
     end
+
+    def variables_csv
+      vars = variables.sort_by(&:name)
+      var_names = vars.collect(&:name)
+      header = "'Period',#{var_names.collect{|n| "'#{n}'"}.join(',')}"
+
+      rows = []
+      @periods.each_index do |index|
+        period = @periods[index]
+
+        context = period.context
+        var_values = var_names.collect do | var_name |
+          var = context.get var_name
+          var.value
+        end.join(',')
+
+        rows << "#{index},#{var_values}"
+      end
+
+      "#{header}\n#{rows.join("\n")}"
+    end
   end
 end
 

@@ -100,6 +100,8 @@ describe "a beer distribution simulation" do
 
     @run.step
     puts @run.summary
+
+    puts @run.variables_csv
   end
 end
 

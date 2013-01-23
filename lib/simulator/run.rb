@@ -13,7 +13,7 @@ module Simulator
     def evaluate
       # evaluate the equations in the current context
       @model.equations.each do | eqtn |
-        result = eqtn.evaluate_in current_context
+        result = eqtn.evaluate_in current_context, @periods
         var = eqtn.variable
         bound_var = current_context.get(var.name)
         bound_var.value = result
@@ -52,6 +52,16 @@ module Simulator
 
     def variable_value(var_name)
       current_context.get(var_name).value
+    end
+
+    def summary
+      var_list = variables.sort_by(&:name).collect do |v|
+        "\t#{v.name} = #{v.value}"
+      end.join("\n")
+      model_summary = %Q{Model "#{@model.name}"}
+      period_summary = "Period #{period_count}"
+
+      "#{model_summary}\n#{period_summary}\nVariables:\n#{var_list}"
     end
   end
 end

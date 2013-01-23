@@ -1,23 +1,39 @@
 module Simulator
   #
   class Model
+    attr_accessor :name
     attr_reader :equations
-    attr_reader :variables
 
-    def initialize
+    def initialize(&block)
       @equations = []
-      @variables = []
+      @variables = {}
+      instance_eval &block unless block.nil?
+    end
+    def var(name, default_value = nil)
+      v = get_variable(name)
+      if v.nil?
+        v = Variable.new name, default_value
+        add_variable v
+      end
+      v
+    end
+    def eqtn(var_name, &block)
+      v = var(var_name)
+      e = Equation.new(v, &block)
+      add_equation e
+      e
     end
     def add_equation(equation)
       @equations << equation
     end
     def add_variable(variable)
-      @variables << variable
+      @variables[variable.name] = variable
     end
     def get_variable(name)
-      @variables.find do |v|
-        v.name == name
-      end
+      @variables[name]
+    end
+    def variables
+      @variables.values
     end
   end
 end

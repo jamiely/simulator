@@ -6,6 +6,7 @@ module Simulator
 
     def initialize(variable, context)
       @variable = variable
+      @value = @variable.default_value
       @context = context
     end
 

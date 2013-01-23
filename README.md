@@ -1,6 +1,6 @@
 # Simulator
 
-Use to easily create models and view results across periods.
+Use to easily create models and view results across periods. 
 
 ## Installation
 
@@ -19,11 +19,9 @@ Or install it yourself as:
 ## Usage
 
 See the features for some examples.
+    bundle exec cucumber
 
-## Contributing
+See the specs for some simpler examples.
+    bundle exec rspec
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+

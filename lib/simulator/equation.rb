@@ -8,8 +8,8 @@ module Simulator
     end
 
     # evaluate the equation in the passed context
-    def evaluate_in(context)
-      sandbox = Sandbox.new context
+    def evaluate_in(context, periods = [])
+      sandbox = Sandbox.new context, periods
       sandbox.instance_eval &@equation_block
     end
   end

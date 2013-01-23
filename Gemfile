@@ -10,6 +10,7 @@ group :development do
 end
 group :test do
   gem "rspec"
+  gem "rspec-expectations", "~>2.12.1"
   gem "cucumber"
 end
 

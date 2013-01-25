@@ -41,7 +41,7 @@ model = Simulator::Model.new do
   eqtn(:y, 100) { y + vy }
 end
 
-# Run the model 30 periods
+# Run the model 10 periods
 model_run = model.new_run
 10.times do 
   model_run.step

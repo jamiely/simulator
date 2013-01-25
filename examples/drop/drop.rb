@@ -2,7 +2,7 @@ require 'json'
 require 'chunky_png'
 require 'simulator'
 
-module Bounce
+module Drop
   class Program
     attr_accessor :model, :steps_per_second
 
@@ -10,7 +10,7 @@ module Bounce
       steps_per_second = 3.0
       @steps_per_second = steps_per_second
       @model = ::Simulator::Model.new do
-        name = "Bounce model"
+        name = "Drop model"
         var :ax, 0
         var :ay, - 9.8/steps_per_second
         eqtn(:vx, 20) { vx + ax }
@@ -59,12 +59,12 @@ module Bounce
     def run
       data = model_data
       pts = norm_data data
-      plot_data 'bounce.png', pts
+      plot_data 'drop.png', pts
     end
   end
 end
 
 
 # Run the program
-Bounce::Program.new.run
+Drop::Program.new.run
 

@@ -29,6 +29,7 @@ See the specs for some simpler examples.
 See the `examples` subdirectory for examples as well. Including the one
 excerpted below:
 
+    ```ruby
     # We create a model that simulates a ball drop
     model = Simulator::Model.new do
       name = "Ball drop model"
@@ -53,5 +54,5 @@ excerpted below:
     # > [140.2, 170.6, 191.2, 202.0, 203.0, 194.2, 175.6, 147.2, 108.99999999999999, 60.999999999999986, 60.999999999999986]]
 
     # Then plot it or do whatever you like
-
+    ```
 

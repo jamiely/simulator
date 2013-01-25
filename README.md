@@ -29,7 +29,7 @@ See the specs for some simpler examples.
 See the `examples` subdirectory for examples as well. Including the one
 excerpted below:
 
-    #We create a model like so that 
+    # We create a model that simulates a ball drop
     model = Simulator::Model.new do
       name = "Ball drop model"
       var :ax, 0

@@ -1,3 +1,11 @@
+v0.0.5
+======
+* Added "bounce" example
+* Added arg to pass default value of variable with eqtn call
+
+v0.0.4
+======
+
 v0.0.3
 ======
 * Added block parameter to Model instantiation to more easily create

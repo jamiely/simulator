@@ -8,6 +8,7 @@ module Simulator
       @equations = []
       @variables = {}
       instance_eval &block unless block.nil?
+      puts "Initialized model #{@name}"
     end
     def var(name, default_value = nil)
       v = get_variable(name)
@@ -17,8 +18,8 @@ module Simulator
       end
       v
     end
-    def eqtn(var_name, &block)
-      v = var(var_name)
+    def eqtn(var_name, default_value = nil, &block)
+      v = var(var_name, default_value)
       e = Equation.new(v, &block)
       add_equation e
       e
@@ -34,6 +35,10 @@ module Simulator
     end
     def variables
       @variables.values
+    end
+
+    def new_run
+      Run.new self
     end
   end
 end

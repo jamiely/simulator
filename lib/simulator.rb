@@ -7,6 +7,7 @@ require 'simulator/sandbox'
 require 'simulator/model'
 require 'simulator/run'
 require 'simulator/period'
+require 'simulator/data'
 
 module Simulator
 end

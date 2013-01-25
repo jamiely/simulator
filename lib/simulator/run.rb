@@ -84,6 +84,12 @@ module Simulator
 
       "#{header}\n#{rows.join("\n")}"
     end
+
+    def data
+      data = Data.new
+      data.periods = @periods
+      data
+    end
   end
 end
 

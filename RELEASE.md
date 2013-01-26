@@ -1,3 +1,7 @@
+v0.1.1
+======
+* Added mortgage example
+
 v0.1.0
 ======
 * First minor release

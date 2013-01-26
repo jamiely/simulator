@@ -33,10 +33,19 @@ excerpted below:
 # We create a model that simulates a ball drop
 model = Simulator::Model.new do
   name = "Ball drop model"
+  # create a couple static variables to represent acceleration with
+  # default values
   var :ax, 0
   var :ay, - 9.8
+
+  # create dynamic variables bound to some computation, with default
+  # values. 
+
+  # velocity is affected by acceleration
   eqtn(:vx, 20) { vx + ax }
   eqtn(:vy, 50) { vy + ay }
+
+  # position is affected by velocity
   eqtn(:x, 10) { x + vx }
   eqtn(:y, 100) { y + vy }
 end

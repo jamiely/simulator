@@ -8,7 +8,6 @@ module Simulator
       @equations = []
       @variables = {}
       instance_eval &block unless block.nil?
-      puts "Initialized model #{@name}"
     end
     def var(name, default_value = nil)
       v = get_variable(name)

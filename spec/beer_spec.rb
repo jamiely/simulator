@@ -49,8 +49,7 @@ describe "a beer distribution simulation" do
       eqtn :total_customer_orders do
         cumulative_unfilled_orders + new_customer_orders
       end
-      var :shipments, 0
-      eqtn :shipments do
+      eqtn :shipments, 0 do
         [total_customer_orders, finished_goods_inventory].min
       end
 
@@ -69,18 +68,15 @@ describe "a beer distribution simulation" do
         tmp2.round
       end
 
-      var :cumulative_unfilled_orders, 0
-      eqtn :cumulative_unfilled_orders do
+      eqtn :cumulative_unfilled_orders, 0 do
         delta = unfilled_orders - filled_orders - cancelled_unfilled_orders
         cumulative_unfilled_orders + delta
       end
 
-      var :filled_orders, 0
-      eqtn :filled_orders do 
+      eqtn :filled_orders, 0 do 
         [0, shipments - new_customer_orders].max
       end
-      var :lost_orders, 0
-      eqtn :lost_orders do
+      eqtn :lost_orders, 0 do
         lost_orders + cancelled_unfilled_orders
       end
     end
@@ -89,19 +85,7 @@ describe "a beer distribution simulation" do
   end
 
   it "can step a run" do
-    puts @run.summary
     @run.period_count.should eq 1
-
-    @run.step
-    puts @run.summary
-
-    @run.step
-    puts @run.summary
-
-    @run.step
-    puts @run.summary
-
-    puts @run.variables_csv
   end
 end
 

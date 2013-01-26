@@ -1,3 +1,9 @@
+v0.1.0
+======
+* First minor release
+* Removes `puts` in `Model.rb`
+* Alters beer_spec to use new var default syntax
+
 v0.0.5
 ======
 * Added "bounce" example

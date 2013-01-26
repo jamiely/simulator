@@ -3,10 +3,10 @@ require File.expand_path('../lib/simulator/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Jamie Ly"]
-  gem.email         = ["me@jamiely.com"]
-  gem.description   = %q{Use to simulate stuff}
-  gem.summary       = %q{Use to simulate stuff}
-  gem.homepage      = ""
+  gem.email         = ["me@jamie.ly"]
+  gem.description   = %q{Use to simulate discrete time models. See the examples directory for examples.}
+  gem.summary       = %q{Use to simulate discrete time models.}
+  gem.homepage      = "http://github.com/jamiely/simulator"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

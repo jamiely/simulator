@@ -1,3 +1,7 @@
+v0.1.2
+======
+* Added detail to gemspec
+
 v0.1.1
 ======
 * Added mortgage example

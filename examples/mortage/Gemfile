@@ -1,0 +1,5 @@
+source :rubygems
+
+gem 'simulator', path: '../..'
+gem 'chunky_png'
+

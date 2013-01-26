@@ -1,3 +1,8 @@
+v0.1.3
+======
+* Added parameter to `Run#step` to allow passing the number of times to
+  step
+
 v0.1.2
 ======
 * Added detail to gemspec

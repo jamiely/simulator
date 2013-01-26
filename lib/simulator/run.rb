@@ -26,9 +26,11 @@ module Simulator
       p
     end
 
-    def step
-      evaluate
-      increment_period
+    def step(times=1)
+      times.times do
+        evaluate
+        increment_period
+      end
     end
 
     # The number of periods so far. All runs have at least 1 period.

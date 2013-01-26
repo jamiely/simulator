@@ -23,12 +23,9 @@ module Drop
     end
 
     def model_data
-      # Run the model 30 steps
       model_run = @model.new_run
-      30.times do 
-        model_run.step
-      end
-      
+      model_run.step 30
+
       # get the data
       model_run.data
     end

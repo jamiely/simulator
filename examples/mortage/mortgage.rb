@@ -20,26 +20,32 @@ module Mortgage
     end
 
     def model_data
+      # a quick convenience method, don't try this at home
+      Fixnum.class_eval do
+        def years
+          self * 12
+        end
+      end
+
       # fixed rate mortgage
       fixed = @model.new_run
       fixed.set payment: 2100
-      (30 * 12).times { fixed.step }
+      fixed.step 30.years
 
       # balloon
       balloon = @model.new_run
       balloon.set payment: 1850
-      (30 * 12).times { balloon.step }
+      balloon.step 30.years
 
       variable = @model.new_run
       # first 10 years, stick with low payment
       variable.set payment: 1800
-      (10 * 12).times do
-        variable.step
-      end
+      variable.step 10.years
 
       # subsequent years, balloon to higher payment until its paid
       variable.set payment: 2100
-      (20 * 12).times {variable.step}
+      variable.step 20.years
+
       @balances = {
         variable: variable.data.series(:balance),
         fixed: fixed.data.series(:balance),

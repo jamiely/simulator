@@ -2,7 +2,7 @@
 
 Use to easily create models and view results across periods. 
 
-[![Build Status](https://travis-ci.org/jamiely/simulator.png)](https://travis-ci.org/jamiely/simulator)
+[![Build Status](https://travis-ci.org/jamiely/simulator.png?branch=master)](https://travis-ci.org/jamiely/simulator)
 
 ## Installation
 

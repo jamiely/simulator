@@ -2,6 +2,8 @@
 
 Use to easily create models and view results across periods. 
 
+[![Build Status](https://travis-ci.org/jamiely/simulator.png)](https://travis-ci.org/jamiely/simulator)
+
 ## Installation
 
 Add this line to your application's Gemfile:

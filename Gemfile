@@ -9,6 +9,7 @@ group :development do
   gem 'pry'
 end
 group :test do
+  gem "rake"
   gem "rspec"
   gem "rspec-expectations", "~>2.12.1"
   gem "cucumber"
